@@ -39,21 +39,43 @@ var arraySum = function(array) {
 };
 
 // 4. Check if a number is even.
-var isEven = function(n) {};
+var isEven = function(n) {
+  var abs = Math.abs(n);
+  if (n === 1) {
+    return false;
+  }
+  if (n === 0) {
+    return true;
+  }
+  if (n > 0) {
+    return (n = isEven(n - 2));
+  }
+  return (n = isEven(n + 2));
+};
+console.log(isEven(6));
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {};
-
+var sumBelow = function(n) {
+  //create result = 0
+  //return 1 if n gets to 0
+  if (n === 0) {
+    return 0;
+  }
+  //sum all numbers to n
+  if (n > 0) {
+    var s = n - 1;
+    return (s += sumBelow(n - 1));
+  } else {
+    var s = n + 1;
+    return (s += sumBelow(n + 1));
+  }
+  return n;
+};
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-var range = function(x, y) {
-  var arr = [];
-  if (x < y) {
-    return;
-  }
-};
+var range = function(x, y) {};
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
